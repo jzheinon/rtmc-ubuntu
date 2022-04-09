@@ -1,7 +1,7 @@
 #!/bin/sh
 
 RSTUDIO_VERSION="2021.09.0-351"
-CRAN_LATEST="hirsute"
+CRAN_LATEST="impish"
 
 isInstalled() {
   if $(dpkg-query -Wf'${db:Status-abbrev}' "$1" 2>/dev/null | grep -q '^i')
@@ -74,10 +74,12 @@ setMirror
 update
 testAndInstall dkms
 installPrerequisites
-installCranKey
-addCranRepository
+testAndInstall virtualbox-guest-x11
 testAndInstall xfce4
 testAndInstall lightdm
+testAndInstall firefox
+installCranKey
+addCranRepository
 testAndInstall r-base
 installRStudio
 testAndInstall r-cran-shinyjs
