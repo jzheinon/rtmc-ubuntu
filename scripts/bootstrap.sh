@@ -1,6 +1,5 @@
 #!/bin/sh
 
-RSTUDIO_VERSION="2021.09.0-351"
 CRAN_LATEST="impish"
 
 isInstalled() {
@@ -48,19 +47,9 @@ addCranRepository() {
    add-apt-repository "deb https://cloud.r-project.org/bin/linux/ubuntu ${CRAN_LATEST}-cran40/"
 }
 
-installRStudio() {
-  if isInstalled rstudio
-  then
-     echo "[vagrant] rstudio is already installed"
-  else
-     echo "[vagrant] Installing rstudio" 
-     wget --progress=bar:force:noscroll -O /tmp/rstudio-${RSTUDIO_VERSION}-amd64.deb https://download1.rstudio.org/desktop/bionic/amd64/rstudio-${RSTUDIO_VERSION}-amd64.deb
-     dpkg -i /tmp/rstudio-2021.09.0-351-amd64.deb
-  fi
-}
-
 installPrerequisites() {
    echo "[vagrant] Installing prerequisites"
+   testAndInstall libssl-dev
    testAndInstall software-properties-common
    testAndInstall dirmngr
    testAndInstall libclang-dev
@@ -74,13 +63,12 @@ setMirror
 update
 testAndInstall dkms
 installPrerequisites
+testAndInstall ubuntu-desktop
 testAndInstall virtualbox-guest-x11
-testAndInstall xfce4
 testAndInstall lightdm
 testAndInstall firefox
 installCranKey
 addCranRepository
 testAndInstall r-base
-installRStudio
 testAndInstall r-cran-shinyjs
 
