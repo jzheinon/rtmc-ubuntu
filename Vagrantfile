@@ -5,11 +5,11 @@ Vagrant.configure("2") do |config|
   config.vm.hostname = "rtmc-ubuntu.local"
 
   # Manage host
-  if Vagrant.has_plugin?('vagrant-vbguest')
-    puts 'vagrant-vbguest plugin is installed. Excellent!' 
-   # config.vbguest.auto_update = false 
-  else
-    puts '[WARNING] vagrant-vbguest  is not installed. Installation is recommended for easy management of guest additions for e.g. shared folders between guest and host environments.  Please run `vagrant plugin install vagrant-vbguest`'
+  if !Vagrant.has_plugin?('vagrant-vbguest')
+    puts '[WARNING] vagrant-vbguest  is not installed. Installation is recommended for easy management of guest additions for e.g. shared folders between guest and host environments.  Please run `vagrant plugin install vagrant-vbguest`' 
+  end
+  if !Vagrant.has_plugin?('vagrant-reload')
+    puts '[WARNING] vagrant-reload is not installed. It is needed for provisioning. Please run `vagrant plugin install vagrant-reload`'
   end
 
   config.vm.provider "virtualbox" do |vb|
