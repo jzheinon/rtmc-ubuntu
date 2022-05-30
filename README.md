@@ -7,7 +7,7 @@ This is a Vagrant installation providing a virtual RStudio environment based on 
 Requirements:
 - 8 GB or more RAM
 - Virtualisation support (modern processor)
-- Git
+- Git (optional)
 - VirtualBox
 - Vagrant
 
@@ -33,7 +33,9 @@ Username: vagrant
 Password: vagrant
 #### Software installation
 
-- Git
+Note that git is optional, you may also download the repository from GitHub as a zip file and extract it.
+
+- Git (optional)
   - Linux: Install with your package manager
     ```bash
      sudo apt install git
