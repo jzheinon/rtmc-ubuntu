@@ -1,5 +1,6 @@
 Vagrant.configure("2") do |config|
-  config.vm.box = "ubuntu/impish64"
+  config.vm.box = "ubuntu/jammy64"
+  config.vm.box_download_insecure = true
 
 #  config.vm.network "private_network", ip: "192.168.33.109"
   config.vm.hostname = "rtmc-ubuntu.local"
@@ -33,6 +34,7 @@ Vagrant.configure("2") do |config|
   config.vm.provision :reload
   config.vm.provision "shell",
     path: "scripts/rstudio.sh"
+  config.vm.provision :reload
 
   config.vm.post_up_message = "Your R Studio environment is ready."
 end

@@ -1,6 +1,6 @@
 #!/bin/sh
 
-CRAN_LATEST="impish"
+CRAN_LATEST="jammy"
 
 isInstalled() {
   if $(dpkg-query -Wf'${db:Status-abbrev}' "$1" 2>/dev/null | grep -q '^i')
