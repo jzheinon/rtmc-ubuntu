@@ -119,8 +119,10 @@ For Finnish keyboard layout, click the power button icon on the top right, click
 
 #### Accessing applications
 
-The application list is accessed from the bottom left. Apps of interest are **Terminal** (command line) and **RStudio**. R console may be started by typing
+The application list is accessed from the bottom left. Apps of interest are **Terminal** (command line) and **RStudio**. Frequently used apps may be added permanently to the sidebar by right-clicking and adding them as favorites. R console may be started by typing
 
 ```bash
 R
 ```
+
+in the Terminal. You may run multiple tabs in one terminal and multiple terminal windows.
