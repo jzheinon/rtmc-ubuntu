@@ -1,8 +1,7 @@
 # rtmc-ubuntu
 ## R Studio environment on Ubuntu
 
-This is a Vagrant installation providing a virtual RStudio environment based on Ubuntu 21.10 Impish Indri. It offers R version 4.2.0 and R Studio version 
-2022.02.2 Build 485. It runs on Windows, Mac and Linux hosts.
+This is a Vagrant installation providing a virtual RStudio environment based on Ubuntu 22.04.2 Jammy Jellyfish. The motivation for this are the undergraduate courses for introductory statistics and R at the University of Helsinki, but anyone is naturally free to use it. It offers R version 4.3.0 and R Studio version 2023.03.0 Build 386. It runs on Windows, Mac and Linux hosts.
 
 Requirements:
 - 8 GB or more RAM
@@ -31,7 +30,7 @@ vagrant up
 Username: vagrant
 
 Password: vagrant
-#### Software installation
+#### Required software installation
 
 Note that git is optional, you may also download the repository from GitHub as a zip file and extract it.
 
@@ -95,7 +94,7 @@ vagrant up
 ```
 This will take a while, depending on your internet connection and system performance.
 
-Credentials: vagrant/vagrant
+The username and password are both **vagrant**
 
 When installing RTMC, create a directory for library_paths, e.g.
 ```bash
@@ -105,13 +104,23 @@ and in the installation script, set
 
 library_paths <- "/home/vagrant/rlib"
 
-### Note
- The environment is based on Ubuntu 21.10 Impish Indri. Do not upgrade to the latest version, as it is incompatible with R Studio.
+Follow the instructions from RTMC installation. R and RStudio are installed automatically, so you may ignore those steps. In RTMC installation the packages will be installed from source, so it will take a while.
 
 ### Tips
+
+#### Display
 If your display has sluggish performance or experiences other problems, you may try changing the display manager to lightdm (in the virtual machine).
 ```bash
 sudo dpkg-reconfigure lightdm
 ```
 
+#### Keyboard
 For Finnish keyboard layout, click the power button icon on the top right, click Settings->Keyboard, click the plus sign under "Input Sources", add Finnish and select it on the top menu.
+
+#### Accessing applications
+
+The application list is accessed from the bottom left. Apps of interest are **Terminal** (command line) and **RStudio**. R console may be started by typing
+
+```bash
+R
+```
