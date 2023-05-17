@@ -1,6 +1,6 @@
 #!/bin/sh
 
-RSTUDIO_VERSION="2023.03.0-386"
+RSTUDIO_VERSION="2023.03.1-446"
 
 isInstalled() {
   if $(dpkg-query -Wf'${db:Status-abbrev}' "$1" 2>/dev/null | grep -q '^i')
